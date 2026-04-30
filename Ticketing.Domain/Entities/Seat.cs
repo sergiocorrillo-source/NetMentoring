@@ -1,0 +1,19 @@
+using System;
+
+namespace Ticketing.Domain.Entities
+{
+    public class Seat
+    {
+        public Guid SeatId { get; set; }
+        public Guid SeatManifestId { get; set; }
+        public string SeatType { get; set; } = null!;
+        public string Section { get; set; } = null!;
+        public string RowNumber { get; set; } = null!;
+        public string SeatNumber { get; set; } = null!;
+        public SeatStatus Status { get; set; } = SeatStatus.Available;
+        public SeatManifest? SeatManifest { get; set; }
+
+        // Concurrency token for optimistic concurrency control
+        public byte[]? RowVersion { get; set; }
+    }
+}

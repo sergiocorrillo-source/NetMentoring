@@ -1,0 +1,12 @@
+using System;
+
+namespace Ticketing.Domain.Entities
+{
+    public class Price
+    {
+        public Guid PriceId { get; set; }
+        public string Name { get; set; } = null!;
+        public decimal Amount { get; set; }
+        public string Currency { get; set; } = "EUR";
+    }
+}

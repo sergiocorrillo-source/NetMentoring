@@ -1,0 +1,73 @@
+root = true
+
+[*]
+end_of_line = crlf
+insert_final_newline = true
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.{cs,vb}]
+indent_style = space
+indent_size = 4
+
+[*.cs]
+# Using C# code style preferences
+dotnet_sort_system_directives_first = true
+csharp_new_line_before_open_brace = all
+csharp_indent_case_contents = true
+csharp_preserve_single_line_statements = false
+
+# Prefer using implicit type only when type is apparent
+csharp_style_var_when_type_is_apparent = true:suggestion
+csharp_style_var_elsewhere = false:suggestion
+
+# Qualification preferences
+dotnet_style_qualification_for_field = false:none
+dotnet_style_qualification_for_property = false:none
+dotnet_style_qualification_for_method = false:none
+dotnet_style_qualification_for_event = false:none
+
+# Expression-bodied members
+csharp_style_expression_bodied_methods = false:suggestion
+csharp_style_expression_bodied_properties = false:suggestion
+
+# Naming rules
+# Types (classes, structs, enums, interfaces) -> PascalCase
+dotnet_naming_rule.types_should_be_pascal_case.severity = suggestion
+dotnet_naming_rule.types_should_be_pascal_case.symbols = all_types
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case_style
+
+dotnet_naming_symbols.all_types.applicable_kinds = class, struct, enum, interface
+
+dotnet_naming_style.pascal_case_style.capitalization = pascal_case
+
+# Private fields -> _camelCase
+dotnet_naming_rule.private_fields_should_be_camel_with_underscore.severity = suggestion
+dotnet_naming_rule.private_fields_should_be_camel_with_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_should_be_camel_with_underscore.style = underscore_camel_style
+
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+
+dotnet_naming_style.underscore_camel_style.required_prefix = _
+dotnet_naming_style.underscore_camel_style.capitalization = camel_case
+
+# Methods and Properties -> PascalCase
+dotnet_naming_rule.methods_properties_pascal.severity = suggestion
+dotnet_naming_rule.methods_properties_pascal.symbols = methods_and_properties
+dotnet_naming_rule.methods_properties_pascal.style = pascal_case_style
+
+dotnet_naming_symbols.methods_and_properties.applicable_kinds = method, property
+
+# Constants -> PascalCase
+dotnet_naming_rule.constants_pascal.severity = suggestion
+dotnet_naming_rule.constants_pascal.symbols = constants
+dotnet_naming_rule.constants_pascal.style = pascal_case_style
+
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+
+# File encoding and license header (optional)
+file_header_template = ""

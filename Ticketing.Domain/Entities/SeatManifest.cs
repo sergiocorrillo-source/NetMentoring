@@ -1,0 +1,14 @@
+using System;
+using System.Collections.Generic;
+
+namespace Ticketing.Domain.Entities
+{
+    public class SeatManifest
+    {
+        public Guid SeatManifestId { get; set; }
+        public Guid VenueId { get; set; }
+        public string Description { get; set; } = null!;
+        public Venue? Venue { get; set; }
+        public ICollection<Seat> Seats { get; set; } = new List<Seat>();
+    }
+}

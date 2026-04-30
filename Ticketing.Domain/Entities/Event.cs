@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+
+namespace Ticketing.Domain.Entities
+{
+    public class Event
+    {
+        public Guid EventId { get; set; }
+        public Guid VenueId { get; set; }
+        public Guid SeatManifestId { get; set; }
+        public string Name { get; set; } = null!;
+        public DateTime EventDate { get; set; }
+        public TimeSpan EventTime { get; set; }
+        public string CreatedBy { get; set; } = null!;
+
+        public Venue? Venue { get; set; }
+        public SeatManifest? SeatManifest { get; set; }
+        public ICollection<Ticket> Tickets { get; set; } = new List<Ticket>();
+    }
+}
