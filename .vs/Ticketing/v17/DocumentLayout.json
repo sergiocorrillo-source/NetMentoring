@@ -3,8 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA4}|Ticketing.Services\\Ticketing.Services.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA4}|Ticketing.Services\\Ticketing.Services.csproj|solutionrelative:ticketing.services\\reservationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA2}|Ticketing.Data\\Ticketing.Data.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.data\\ticketingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA2}|Ticketing.Data\\Ticketing.Data.csproj|solutionrelative:ticketing.data\\ticketingdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\customer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\event.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\seat.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\venue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\offer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\seatmanifest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\seatmanifest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\price.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\price.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.domain\\entities\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA1}|Ticketing.Domain\\Ticketing.Domain.csproj|solutionrelative:ticketing.domain\\entities\\eventmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA5}|Ticketing.Api\\Ticketing.Api.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA5}|Ticketing.Api\\Ticketing.Api.csproj|solutionrelative:ticketing.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA5}|Ticketing.Api\\Ticketing.Api.csproj|c:\\users\\admin\\source\\repos\\sergiocorrillo-source\\netmentoring\\ticketing.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A1B2C3D4-1111-4444-8888-AAAAAAAAAAA5}|Ticketing.Api\\Ticketing.Api.csproj|solutionrelative:ticketing.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,12 +67,168 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ReservationService.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Services\\ReservationService.cs",
+              "RelativeDocumentMoniker": "Ticketing.Services\\ReservationService.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Services\\ReservationService.cs",
+              "RelativeToolTip": "Ticketing.Services\\ReservationService.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAgwE4AAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T22:40:01.2Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Ticketing.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\Program.cs",
+              "RelativeToolTip": "Ticketing.Api\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T22:29:02.339Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Ticketing.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\appsettings.json",
+              "RelativeToolTip": "Ticketing.Api\\appsettings.json",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-30T22:28:52.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "EventManager.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\EventManager.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\EventManager.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\EventManager.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\EventManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:15:07.63Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Price.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Price.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Price.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Price.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Price.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:15:00.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "SeatManifest.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\SeatManifest.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\SeatManifest.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\SeatManifest.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\SeatManifest.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBJwAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:55.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Offer.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Offer.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Offer.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Offer.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Offer.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBJwAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:49.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Venue.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Venue.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Venue.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Venue.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Venue.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAIBJwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:42.314Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Seat.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Seat.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Seat.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Seat.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Seat.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAIBJwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:35.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Event.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Event.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Event.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Event.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Event.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBJwAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:24.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ticket.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Ticket.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Ticket.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Ticket.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Ticket.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAIBJwAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:13.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Customer.cs",
+              "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Customer.cs",
+              "RelativeDocumentMoniker": "Ticketing.Domain\\Entities\\Customer.cs",
+              "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Domain\\Entities\\Customer.cs",
+              "RelativeToolTip": "Ticketing.Domain\\Entities\\Customer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIBJwAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:14:04.677Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "TicketingDbContext.cs",
               "DocumentMoniker": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Data\\TicketingDbContext.cs",
               "RelativeDocumentMoniker": "Ticketing.Data\\TicketingDbContext.cs",
               "ToolTip": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Data\\TicketingDbContext.cs",
               "RelativeToolTip": "Ticketing.Data\\TicketingDbContext.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDEAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAcwDUAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-04-30T10:04:13.479Z",
               "EditorCaption": ""

@@ -1,0 +1,11 @@
+﻿using System;
+
+namespace Ticketing.Domain.Entities
+{
+    public class EventManager
+    {
+        public Guid EventManagerId { get; set; }
+        public string Email { get; set; } = null!;
+        public string FullName { get; set; } = null!;
+    }
+}
