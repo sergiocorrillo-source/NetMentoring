@@ -15,6 +15,10 @@ builder.Services.AddDbContext<TicketingDbContext>(options => options.UseSqlServe
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<ReservationService>();
+builder.Services.AddScoped<VenueService>();
+builder.Services.AddScoped<EventService>();
+builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<PaymentService>();
 
 var app = builder.Build();
 

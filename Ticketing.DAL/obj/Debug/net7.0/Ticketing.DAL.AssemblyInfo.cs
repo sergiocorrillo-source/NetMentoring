@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ticketing.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d8a4ac8170e520f85b4de556f71816a983092e41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9aa0e47b5caa80075f87b03962fa3488b626af10")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ticketing.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ticketing.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
