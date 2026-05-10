@@ -8,7 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // DbContext
-var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=(localdb)\\mssqllocaldb;Database=TicketingDb;Trusted_Connection=True;";
+var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=NBCORAR2433;Database=TicketingDb;Trusted_Connection=True;";
 builder.Services.AddDbContext<TicketingDbContext>(options => options.UseSqlServer(connectionString));
 
 // DI registrations
