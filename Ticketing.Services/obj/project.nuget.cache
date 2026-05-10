@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "p0VYc84ahvw=",
+=======
+  "dgSpecHash": "L8F+RTyLE2U=",
+>>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Services\\Ticketing.Services.csproj",
   "expectedPackageFiles": [
