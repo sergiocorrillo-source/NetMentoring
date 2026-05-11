@@ -1,10 +1,6 @@
 {
   "version": 2,
-<<<<<<< Updated upstream
-  "dgSpecHash": "OuoCbRs8E1c=",
-=======
   "dgSpecHash": "kqmI1R7hGeA=",
->>>>>>> Stashed changes
   "success": true,
   "projectFilePath": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\Ticketing.Api.csproj",
   "expectedPackageFiles": [
@@ -70,5 +66,15 @@
     "C:\\Users\\admin\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "message": "Problema al leer el archivo de caché C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\obj\\project.nuget.cache : '<' is an invalid start of a property name. Expected a '\"'. Path: $ | LineNumber: 2 | BytePositionInLine: 0.",
+      "projectPath": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\Ticketing.Api.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\admin\\source\\repos\\sergiocorrillo-source\\NetMentoring\\Ticketing.Api\\Ticketing.Api.csproj",
+      "targetGraphs": []
+    }
+  ]
 }
