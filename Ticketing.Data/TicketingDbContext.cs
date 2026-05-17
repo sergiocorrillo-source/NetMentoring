@@ -16,6 +16,9 @@ namespace Ticketing.Data
         public DbSet<Price> Prices => Set<Price>();
         public DbSet<Offer> Offers => Set<Offer>();
         public DbSet<Ticket> Tickets => Set<Ticket>();
+        public DbSet<Payment> Payments => Set<Payment>();
+        public DbSet<Cart> Carts => Set<Cart>();
+        public DbSet<CartItem> CartItems => Set<CartItem>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -79,6 +82,36 @@ namespace Ticketing.Data
                 .HasOne(t => t.Offer)
                 .WithMany(o => o.Tickets)
                 .HasForeignKey(t => t.OfferId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.Payment)
+                .WithMany(p => p.Tickets)
+                .HasForeignKey(t => t.PaymentId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<Cart>()
+                .HasMany(c => c.Items)
+                .WithOne(ci => ci.Cart)
+                .HasForeignKey(ci => ci.CartId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Event)
+                .WithMany()
+                .HasForeignKey(ci => ci.EventId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Seat)
+                .WithMany()
+                .HasForeignKey(ci => ci.SeatId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<CartItem>()
+                .HasOne(ci => ci.Price)
+                .WithMany()
+                .HasForeignKey(ci => ci.PriceId)
                 .OnDelete(DeleteBehavior.Restrict);
         }
     }
