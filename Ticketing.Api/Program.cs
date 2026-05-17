@@ -19,6 +19,7 @@ builder.Services.AddScoped<VenueService>();
 builder.Services.AddScoped<EventService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<PaymentService>();
+builder.Services.AddScoped<OrderService>();
 
 var app = builder.Build();
 

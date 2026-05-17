@@ -14,6 +14,7 @@ namespace Ticketing.Domain.Entities
         public Guid? CustomerId { get; set; }
         public Guid OfferId { get; set; }
         public Guid? PaymentId { get; set; }
+        public Guid? OrderId { get; set; }
 
         [Required, MaxLength(50)]
         public string Status { get; set; } = "Created";
@@ -34,5 +35,8 @@ namespace Ticketing.Domain.Entities
 
         [ForeignKey(nameof(PaymentId))]
         public Payment? Payment { get; set; }
+
+        [ForeignKey(nameof(OrderId))]
+        public Order? Order { get; set; }
     }
 }
