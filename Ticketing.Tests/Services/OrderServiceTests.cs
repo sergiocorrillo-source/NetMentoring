@@ -153,7 +153,7 @@ namespace Ticketing.Tests.Services
 
             _mockUnitOfWork
                 .Setup(uow => uow.SaveChangesAsync())
-                .Returns(Task.CompletedTask);
+                .Returns(Task.FromResult(1));
 
             // Act
             var result = await _orderService.CreateOrderAsync(createOrderDto);

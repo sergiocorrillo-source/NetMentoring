@@ -314,7 +314,7 @@ namespace Ticketing.Tests.Controllers
 
             _mockOrderService
                 .Setup(service => service.CancelOrderAsync(orderId))
-                .Returns(Task.CompletedTask);
+                .ReturnsAsync(new Ticketing.Services.DTOs.OrderDto());
 
             // Act
             var result = await _controller.CancelOrder(orderId);

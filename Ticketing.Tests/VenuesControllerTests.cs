@@ -74,8 +74,8 @@ namespace Ticketing.Tests
             var venueId = Guid.NewGuid();
             var sections = new List<SectionDto>
             {
-                new SectionDto { SectionName = "A", TotalSeats = 100 },
-                new SectionDto { SectionName = "B", TotalSeats = 150 }
+                new SectionDto { Section = "A", Rows = new List<string>() },
+                new SectionDto { Section = "B", Rows = new List<string>() }
             };
 
             _mockVenueService
