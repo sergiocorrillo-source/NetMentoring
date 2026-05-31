@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -12,10 +13,12 @@ namespace Ticketing.Api.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrderService _orderService;
+        private readonly IMemoryCache? _cache;
 
-        public OrdersController(IOrderService orderService)
+        public OrdersController(IOrderService orderService, IMemoryCache? cache = null)
         {
             _orderService = orderService;
+            _cache = cache;
         }
 
         /// <summary>
@@ -97,6 +100,8 @@ namespace Ticketing.Api.Controllers
                     return BadRequest(new { error = "TotalAmount must be greater than 0" });
 
                 var order = await _orderService.CreateOrderAsync(createOrderDto);
+                // Invalidate cached events after creating an order
+                _cache?.Remove("events_all");
                 return CreatedAtAction(nameof(GetOrder), new { orderId = order.OrderId }, order);
             }
             catch (InvalidOperationException ex)
@@ -123,6 +128,8 @@ namespace Ticketing.Api.Controllers
                     return BadRequest(new { error = "OrderStatus is required" });
 
                 var order = await _orderService.UpdateOrderStatusAsync(orderId, updateDto.OrderStatus);
+                // Invalidate cached events after updating an order status
+                _cache?.Remove("events_all");
                 return Ok(order);
             }
             catch (InvalidOperationException ex)
