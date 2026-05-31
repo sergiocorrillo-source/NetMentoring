@@ -34,6 +34,11 @@ namespace Ticketing.DAL
             return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
 
+        public async Task<int> ExecuteSqlRawAsync(string sql, params object[] parameters)
+        {
+            return await _context.Database.ExecuteSqlRawAsync(sql, parameters).ConfigureAwait(false);
+        }
+
         public async Task ExecuteInTransactionAsync(Func<Task> operation)
         {
             // InMemory provider does not support real transactions. Detect and fallback.

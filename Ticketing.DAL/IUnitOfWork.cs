@@ -9,5 +9,6 @@ namespace Ticketing.DAL
         IRepository<T> Repository<T>() where T : class;
         Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
         Task ExecuteInTransactionAsync(Func<Task> operation);
+        Task<int> ExecuteSqlRawAsync(string sql, params object[] parameters);
     }
 }
