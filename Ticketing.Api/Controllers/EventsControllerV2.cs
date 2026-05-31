@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using Ticketing.Services;
 using Ticketing.Services.DTOs;
@@ -28,6 +31,24 @@ namespace Ticketing.Api.Controllers
             try
             {
                 var events = await _eventService.GetAllEventsAsync();
+
+                // Compute ETag from serialized payload
+                var payload = JsonSerializer.Serialize(events);
+                using var sha = SHA256.Create();
+                var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(payload));
+                var etag = '"' + Convert.ToBase64String(hash) + '"';
+
+                // If client provided If-None-Match and it matches, return 304
+                if (Request.Headers.TryGetValue("If-None-Match", out var incoming) && incoming.ToString() == etag)
+                {
+                    Response.Headers["Cache-Control"] = "public, max-age=300";
+                    Response.Headers["ETag"] = etag;
+                    return StatusCode(304);
+                }
+
+                Response.Headers["Cache-Control"] = "public, max-age=300";
+                Response.Headers["ETag"] = etag;
+
                 return Ok(events);
             }
             catch (Exception ex)
@@ -46,6 +67,23 @@ namespace Ticketing.Api.Controllers
             try
             {
                 var seats = await _eventService.GetEventSeatsAsync(eventId, section);
+
+                // Compute ETag from serialized payload
+                var payload = JsonSerializer.Serialize(seats);
+                using var sha = SHA256.Create();
+                var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(payload));
+                var etag = '"' + Convert.ToBase64String(hash) + '"';
+
+                if (Request.Headers.TryGetValue("If-None-Match", out var incoming) && incoming.ToString() == etag)
+                {
+                    Response.Headers["Cache-Control"] = "public, max-age=300";
+                    Response.Headers["ETag"] = etag;
+                    return StatusCode(304);
+                }
+
+                Response.Headers["Cache-Control"] = "public, max-age=300";
+                Response.Headers["ETag"] = etag;
+
                 return Ok(seats);
             }
             catch (Exception ex)

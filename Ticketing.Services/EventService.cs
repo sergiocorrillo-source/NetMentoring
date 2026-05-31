@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Caching.Memory;
 using Ticketing.DAL;
 using Ticketing.Domain.Entities;
 using Ticketing.Services.DTOs;
@@ -11,23 +12,41 @@ namespace Ticketing.Services
     public class EventService
     {
         private readonly IUnitOfWork _uow;
+        private readonly IMemoryCache? _cache;
+        private const string EventsCacheKey = "events_all";
 
-        public EventService(IUnitOfWork uow)
+        public EventService(IUnitOfWork uow, IMemoryCache? cache = null)
         {
             _uow = uow;
+            _cache = cache;
         }
 
         public async Task<IEnumerable<EventDto>> GetAllEventsAsync()
         {
+            if (_cache != null && _cache.TryGetValue<IEnumerable<EventDto>>(EventsCacheKey, out var cached))
+            {
+                return cached;
+            }
+
             var events = await _uow.Repository<Event>().GetAllAsync();
-            return events.Select(e => new EventDto
+            var dtos = events.Select(e => new EventDto
             {
                 EventId = e.EventId,
                 Name = e.Name,
                 EventDate = e.EventDate,
                 EventTime = e.EventTime,
                 VenueId = e.VenueId
-            });
+            }).ToList();
+
+            if (_cache != null)
+            {
+                _cache.Set(EventsCacheKey, dtos, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5)
+                });
+            }
+
+            return dtos;
         }
 
         public async Task<IEnumerable<SeatDto>> GetEventSeatsAsync(Guid eventId, string section)

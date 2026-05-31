@@ -6,6 +6,8 @@ using Ticketing.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
+// In-memory caching
+builder.Services.AddMemoryCache();
 
 // DbContext
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=NBCORAR2433;Database=TicketingDb;Trusted_Connection=True;";
