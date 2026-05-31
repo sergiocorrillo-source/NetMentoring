@@ -8,7 +8,7 @@ using Ticketing.Services.DTOs;
 
 namespace Ticketing.Services
 {
-    public class VenueService
+    public class VenueService : IVenueService
     {
         private readonly IUnitOfWork _uow;
 

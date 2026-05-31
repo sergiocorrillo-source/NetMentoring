@@ -7,7 +7,7 @@ using Ticketing.Domain.Entities;
 
 namespace Ticketing.Services
 {
-    public class ReservationService
+    public class ReservationService : IReservationService
     {
         private readonly IUnitOfWork _uow;
 

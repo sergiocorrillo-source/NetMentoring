@@ -63,9 +63,8 @@ namespace Ticketing.Tests
             };
 
             _mockUnitOfWork
-                .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>() ))
+                .Returns<Func<Task>>(op => op());
 
             // Act
             await _mockUnitOfWork.Object.ExecuteInTransactionAsync(operation);
@@ -99,9 +98,8 @@ namespace Ticketing.Tests
             });
 
             _mockUnitOfWork
-                .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>() ))
+                .Returns<Func<Task>>(op => op());
 
             // Act & Assert
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () =>

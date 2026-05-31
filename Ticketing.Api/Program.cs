@@ -14,12 +14,12 @@ builder.Services.AddDbContext<TicketingDbContext>(options => options.UseSqlServe
 // DI registrations
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddScoped<ReservationService>();
-builder.Services.AddScoped<VenueService>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
+builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<EventService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<PaymentService>();
-builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 
 var app = builder.Build();
 

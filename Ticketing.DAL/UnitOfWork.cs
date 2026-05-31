@@ -36,6 +36,31 @@ namespace Ticketing.DAL
 
         public async Task ExecuteInTransactionAsync(Func<Task> operation)
         {
+            // InMemory provider does not support real transactions. Detect and fallback.
+            var databaseProvider = _context.Database.ProviderName;
+            if (databaseProvider != null && databaseProvider.Contains("InMemory", StringComparison.OrdinalIgnoreCase))
+            {
+                // InMemory provider doesn't support transactions. Execute the operation and on exception
+                // attempt a simple rollback by deleting the in-memory database so state returns to clean.
+                try
+                {
+                    await operation().ConfigureAwait(false);
+                    return;
+                }
+                catch
+                {
+                    try
+                    {
+                        await _context.Database.EnsureDeletedAsync().ConfigureAwait(false);
+                    }
+                    catch
+                    {
+                        // ignore cleanup failures
+                    }
+                    throw;
+                }
+            }
+
             using var tx = await _context.Database.BeginTransactionAsync().ConfigureAwait(false);
             try
             {

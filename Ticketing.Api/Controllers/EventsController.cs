@@ -9,9 +9,9 @@ namespace Ticketing.Api.Controllers
     [Route("api/events")]
     public class EventsController : ControllerBase
     {
-        private readonly ReservationService _reservationService;
+        private readonly IReservationService _reservationService;
 
-        public EventsController(ReservationService reservationService)
+        public EventsController(IReservationService reservationService)
         {
             _reservationService = reservationService;
         }
