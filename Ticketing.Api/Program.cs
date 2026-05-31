@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Ticketing.Data;
+using Microsoft.EntityFrameworkCore;
 using Ticketing.DAL;
 using Ticketing.Services;
 
@@ -11,7 +12,14 @@ builder.Services.AddMemoryCache();
 
 // DbContext
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=NBCORAR2433;Database=TicketingDb;Trusted_Connection=True;";
-builder.Services.AddDbContext<TicketingDbContext>(options => options.UseSqlServer(connectionString));
+if (builder.Environment.IsEnvironment("Testing"))
+{
+    builder.Services.AddDbContext<TicketingDbContext>(options => options.UseInMemoryDatabase("TestDb"));
+}
+else
+{
+    builder.Services.AddDbContext<TicketingDbContext>(options => options.UseSqlServer(connectionString));
+}
 
 // DI registrations
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -19,6 +27,7 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped<IReservationService, ReservationService>();
 builder.Services.AddScoped<IVenueService, VenueService>();
 builder.Services.AddScoped<EventService>();
+builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<PaymentService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
