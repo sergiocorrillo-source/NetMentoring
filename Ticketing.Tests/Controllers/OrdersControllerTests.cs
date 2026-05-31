@@ -13,13 +13,12 @@ namespace Ticketing.Tests.Controllers
 {
     public class OrdersControllerTests
     {
-        private readonly Mock<OrderService> _mockOrderService;
+        private readonly Mock<IOrderService> _mockOrderService;
         private readonly OrdersController _controller;
 
         public OrdersControllerTests()
         {
-            var mockUow = new Mock<IUnitOfWork>();
-            _mockOrderService = new Mock<OrderService>(mockUow.Object);
+            _mockOrderService = new Mock<IOrderService>();
             _controller = new OrdersController(_mockOrderService.Object);
         }
 

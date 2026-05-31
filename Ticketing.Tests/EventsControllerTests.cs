@@ -11,12 +11,12 @@ namespace Ticketing.Tests
 {
     public class EventsControllerTests
     {
-        private readonly Mock<ReservationService> _mockReservationService;
+        private readonly Mock<IReservationService> _mockReservationService;
         private readonly EventsController _controller;
 
         public EventsControllerTests()
         {
-            _mockReservationService = new Mock<ReservationService>(null!);
+            _mockReservationService = new Mock<IReservationService>();
             _controller = new EventsController(_mockReservationService.Object);
         }
 

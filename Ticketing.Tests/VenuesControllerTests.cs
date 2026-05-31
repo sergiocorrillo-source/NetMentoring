@@ -13,12 +13,12 @@ namespace Ticketing.Tests
 {
     public class VenuesControllerTests
     {
-        private readonly Mock<VenueService> _mockVenueService;
+        private readonly Mock<IVenueService> _mockVenueService;
         private readonly VenuesController _controller;
 
         public VenuesControllerTests()
         {
-            _mockVenueService = new Mock<VenueService>(null!);
+            _mockVenueService = new Mock<IVenueService>();
             _controller = new VenuesController(_mockVenueService.Object);
         }
 

@@ -11,9 +11,9 @@ namespace Ticketing.Api.Controllers
     [Route("api/[controller]")]
     public class VenuesController : ControllerBase
     {
-        private readonly VenueService _venueService;
+        private readonly IVenueService _venueService;
 
-        public VenuesController(VenueService venueService)
+        public VenuesController(IVenueService venueService)
         {
             _venueService = venueService;
         }

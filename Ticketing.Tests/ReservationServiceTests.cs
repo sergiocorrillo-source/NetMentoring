@@ -75,8 +75,7 @@ namespace Ticketing.Tests
 
             _mockUnitOfWork
                 .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Returns<Func<Task>>(op => op());
 
             // Act
             var ticketId = await _reservationService.ReserveSeatAsync(eventId, seatId, customerId, offerId);
@@ -115,8 +114,7 @@ namespace Ticketing.Tests
 
             _mockUnitOfWork
                 .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Returns<Func<Task>>(op => op());
 
             // Act & Assert
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
@@ -142,8 +140,7 @@ namespace Ticketing.Tests
 
             _mockUnitOfWork
                 .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Returns<Func<Task>>(op => op());
 
             // Act & Assert
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
@@ -201,8 +198,7 @@ namespace Ticketing.Tests
 
             _mockUnitOfWork
                 .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Returns<Func<Task>>(op => op());
 
             // Act
             await _reservationService.ConfirmPurchaseAsync(ticketId);
@@ -226,8 +222,7 @@ namespace Ticketing.Tests
 
             _mockUnitOfWork
                 .Setup(u => u.ExecuteInTransactionAsync(It.IsAny<Func<Task>>()))
-                .Callback<Func<Task>>(async op => await op())
-                .Returns(Task.CompletedTask);
+                .Returns<Func<Task>>(op => op());
 
             // Act & Assert
             var ex = await Assert.ThrowsAsync<InvalidOperationException>(async () =>
