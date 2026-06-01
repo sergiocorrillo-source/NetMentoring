@@ -11,10 +11,12 @@ namespace Ticketing.Services
     public class OrderService : IOrderService
     {
         private readonly IUnitOfWork _uow;
+        private readonly INotificationService? _notificationService;
 
-        public OrderService(IUnitOfWork uow)
+        public OrderService(IUnitOfWork uow, INotificationService? notificationService = null)
         {
             _uow = uow;
+            _notificationService = notificationService;
         }
 
         /// <summary>
@@ -104,6 +106,22 @@ namespace Ticketing.Services
             await _uow.Repository<Order>().AddAsync(order);
             await _uow.SaveChangesAsync();
 
+            // enqueue notification for order created
+            if (_notificationService != null)
+            {
+                var notif = new NotificationDto
+                {
+                    NotificationId = Guid.NewGuid(),
+                    Operation = "OrderCreated",
+                    Timestamp = DateTime.UtcNow,
+                    Parameters = System.Text.Json.JsonSerializer.Serialize(new { email = customer.Email, name = customer.FullName }),
+                    Content = System.Text.Json.JsonSerializer.Serialize(new { orderId = order.OrderId, amount = order.TotalAmount, currency = order.Currency }),
+                    Status = "Queued"
+                };
+
+                await _notificationService.EnqueueNotificationAsync(notif);
+            }
+
             return MapToDto(order, new List<Ticket>());
         }
 
@@ -142,6 +160,22 @@ namespace Ticketing.Services
                             seat.Status = SeatStatus.Sold;
                             _uow.Repository<Seat>().Update(seat);
                         }
+                    }
+
+                    // enqueue notification for payment confirmed
+                    if (_notificationService != null)
+                    {
+                        var notif = new NotificationDto
+                        {
+                            NotificationId = Guid.NewGuid(),
+                            Operation = "OrderPaid",
+                            Timestamp = DateTime.UtcNow,
+                            Parameters = System.Text.Json.JsonSerializer.Serialize(new { email = "", name = "" }),
+                            Content = System.Text.Json.JsonSerializer.Serialize(new { orderId = orderId }) ,
+                            Status = "Queued"
+                        };
+
+                        await _notificationService.EnqueueNotificationAsync(notif);
                     }
                 }
 

@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Ticketing.Data;
+using Ticketing.Api;
 using Microsoft.EntityFrameworkCore;
 using Ticketing.DAL;
 using Ticketing.Services;
@@ -9,6 +10,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // In-memory caching
 builder.Services.AddMemoryCache();
+            // Notification pipeline: in-memory channel + dispatcher
+            var notificationChannel = System.Threading.Channels.Channel.CreateUnbounded<Guid>();
+            builder.Services.AddSingleton<System.Threading.Channels.Channel<Guid>>(notificationChannel);
+            builder.Services.AddScoped<INotificationService, NotificationService>();
+            // Email provider: prefer SendGrid if configured, otherwise fallback to simple provider
+            builder.Services.AddSingleton<IEmailProvider>(sp =>
+            {
+                var cfg = sp.GetRequiredService<Microsoft.Extensions.Configuration.IConfiguration>();
+                var apiKey = cfg["SendGrid:ApiKey"];
+                if (!string.IsNullOrEmpty(apiKey))
+                    return sp.GetRequiredService<Ticketing.Services.SendGridEmailProvider>();
+
+                return new Ticketing.Services.EmailProvider(sp.GetService<Microsoft.Extensions.Logging.ILogger<Ticketing.Services.EmailProvider>>());
+            });
+            builder.Services.AddSingleton<Ticketing.Services.SendGridEmailProvider>();
+            builder.Services.AddHostedService<NotificationDispatcherHostedService>();
 
 // DbContext
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=NBCORAR2433;Database=TicketingDb;Trusted_Connection=True;";
