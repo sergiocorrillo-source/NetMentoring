@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -7,5 +7,8 @@
   <ItemGroup>
     <ProjectReference Include="..\\Ticketing.DAL\\Ticketing.DAL.csproj" />
     <ProjectReference Include="..\\Ticketing.Domain\\Ticketing.Domain.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="SendGrid" Version="9.29.0" />
   </ItemGroup>
 </Project>
