@@ -11,6 +11,7 @@ using Ticketing.Services.DTOs;
 namespace Ticketing.Api.Controllers
 {
     [ApiController]
+    [ResponseCache(Duration = 3600, Location = ResponseCacheLocation.Any, NoStore = false)]
     [Route("api/[controller]")]
     public class EventsControllerV2 : ControllerBase
     {
