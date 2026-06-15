@@ -26,6 +26,8 @@ builder.Services.AddMemoryCache();
             });
             builder.Services.AddSingleton<Ticketing.Services.SendGridEmailProvider>();
             builder.Services.AddHostedService<NotificationDispatcherHostedService>();
+            // Background worker to release reserved seats from carts after expiry
+            builder.Services.AddHostedService<SeatReleaseWorker>();
 
 // DbContext
 var connectionString = builder.Configuration.GetConnectionString("Default") ?? "Server=NBCORAR2433;Database=TicketingDb;Trusted_Connection=True;";
