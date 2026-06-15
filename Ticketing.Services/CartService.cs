@@ -50,49 +50,70 @@ namespace Ticketing.Services
 
         public async Task<CartDto> AddToCartAsync(Guid cartId, AddToCartRequestDto request)
         {
-            // Optimistic concurrency: update the seat status to Reserved within a transaction
-            // and rely on EF Core RowVersion to detect concurrent updates.
-            await _uow.ExecuteInTransactionAsync(async () =>
+            // Pessimistic in-process locking: acquire a per-seat semaphore to ensure only one
+            // thread in this process attempts to reserve the seat at a time. This prevents
+            // multiple successes under heavy parallel load in single-process tests.
+            var sem = SeatLocks.GetOrAdd(request.SeatId, _ => new SemaphoreSlim(1, 1));
+            await sem.WaitAsync();
+            try
             {
-                var cartRepo = _uow.Repository<CartItem>();
-                var seatRepo = _uow.Repository<Seat>();
-
-                // Verificar que el asiento existe y está disponible
-                var seat = await seatRepo.GetByIdAsync(request.SeatId);
-                if (seat == null || seat.Status != SeatStatus.Available)
+                // Perform transactional work while holding the seat lock
+                await _uow.ExecuteInTransactionAsync(async () =>
                 {
-                    _logger?.LogWarning("Attempt to add seat {SeatId} to cart {CartId} but it's not available", request.SeatId, cartId);
-                    throw new InvalidOperationException("Seat is not available.");
-                }
+                    var cartRepo = _uow.Repository<CartItem>();
+                    var seatRepo = _uow.Repository<Seat>();
 
-                // Marcar asiento como reservado (esto actualizará RowVersion)
-                seat.Status = SeatStatus.Reserved;
-                seatRepo.Update(seat);
+                    // Verificar que el asiento existe y está disponible
+                    var seat = await seatRepo.GetByIdAsync(request.SeatId);
+                    if (seat == null || seat.Status != SeatStatus.Available)
+                    {
+                        _logger?.LogWarning("Attempt to add seat {SeatId} to cart {CartId} but it's not available", request.SeatId, cartId);
+                        throw new InvalidOperationException("Seat is not available.");
+                    }
 
-                // Crear item de carrito
-                var cartItem = new CartItem
-                {
-                    CartItemId = Guid.NewGuid(),
-                    CartId = cartId,
-                    EventId = request.EventId,
-                    SeatId = request.SeatId,
-                    PriceId = request.PriceId,
-                    CreatedAt = DateTime.UtcNow
-                };
+                    // Marcar asiento como reservado (esto actualizará RowVersion)
+                    seat.Status = SeatStatus.Reserved;
+                    seatRepo.Update(seat);
 
-                await cartRepo.AddAsync(cartItem);
+                    // Crear item de carrito
+                    var cartItem = new CartItem
+                    {
+                        CartItemId = Guid.NewGuid(),
+                        CartId = cartId,
+                        EventId = request.EventId,
+                        SeatId = request.SeatId,
+                        PriceId = request.PriceId,
+                        CreatedAt = DateTime.UtcNow
+                    };
 
+                    await cartRepo.AddAsync(cartItem);
+
+                    try
+                    {
+                        await _uow.SaveChangesAsync();
+                    }
+                    catch (Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException)
+                    {
+                        // Concurrency conflict: another request modified the seat concurrently
+                        _logger?.LogWarning("Concurrency conflict while adding seat {SeatId} to cart {CartId}", request.SeatId, cartId);
+                        throw new InvalidOperationException("Seat is not available.");
+                    }
+                });
+            }
+            finally
+            {
                 try
                 {
-                    await _uow.SaveChangesAsync();
+                    sem.Release();
                 }
-                catch (Microsoft.EntityFrameworkCore.DbUpdateConcurrencyException)
+                catch { }
+
+                // Optionally remove semaphore to avoid unbounded growth when no longer used
+                if (SeatLocks.TryGetValue(request.SeatId, out var existing) && existing.CurrentCount == 1)
                 {
-                    // Concurrency conflict: another request modified the seat concurrently
-                    _logger?.LogWarning("Concurrency conflict while adding seat {SeatId} to cart {CartId}", request.SeatId, cartId);
-                    throw new InvalidOperationException("Seat is not available.");
+                    SeatLocks.TryRemove(request.SeatId, out _);
                 }
-            });
+            }
 
             return await GetCartAsync(cartId);
         }
